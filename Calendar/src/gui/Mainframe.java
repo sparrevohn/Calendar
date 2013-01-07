@@ -88,7 +88,7 @@ public class Mainframe extends JFrame {
 			if (!jtaMonths.isEditable())
 				jtaMonths.setEditable(true);
 			else {
-				if (text.matches("[0-9]+") == true && 
+				if (text.matches("[0-9]+") && 
 				   (0 < Integer.parseInt(text) && Integer.parseInt(text) < 13)) {
 					Months.months.setDigit(Integer.parseInt(text));
 					jtaMonths.setText(text);

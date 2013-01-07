@@ -34,7 +34,12 @@ public class Days extends Digits {
 		}
 		
 	}
-
+	
+	@Override
+	public void setDigit(int x) {
+		day = x;
+	} 
+	
 	@Override
 	public int getDigit() {
 		return day;
@@ -45,5 +50,7 @@ public class Days extends Digits {
 		if (day < 10)
 			return "0" + day;
 		else return "" + day; 
-	} 
+	}
+
+	
 }

@@ -16,6 +16,11 @@ public class Months extends Digits {
 			month = 1;
 		else month++;
 	}
+	
+	@Override
+	public void setDigit(int x) {
+		month = x;
+	} 
 
 	@Override
 	public int getDigit() {

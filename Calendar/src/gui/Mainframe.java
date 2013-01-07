@@ -8,6 +8,8 @@ import calendar.Months;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Pattern;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,8 +17,8 @@ import javax.swing.JTextArea;
 
 public class Mainframe extends JFrame { 
 	
-	private JButton jbtUpdateDay;
-	private JButton jbtUpdateMonth;
+	private JButton jbtUpdateDays;
+	private JButton jbtUpdateMonths;
 	private JButton jbtNext;
 	private JTextArea jtaDays;
 	private JTextArea jtaMonths;
@@ -28,8 +30,8 @@ public class Mainframe extends JFrame {
 	JPanel p2 = new JPanel();
 	JPanel p3 = new JPanel();
 	
-	jbtUpdateDay = new JButton("Change day");
-	jbtUpdateMonth = new JButton("Change month");	
+	jbtUpdateDays = new JButton("Change day");
+	jbtUpdateMonths = new JButton("Change month");	
 	jbtNext = new JButton("Next day");
 	
 	jtaDays = new JTextArea(1, 1);
@@ -43,12 +45,13 @@ public class Mainframe extends JFrame {
 	jtaMonths.setText(Months.months.digitToString());
 	
 	jbtNext.addActionListener(new NextListener());
+	jbtUpdateMonths.addActionListener(new UpdateMonthsListener());
 	
 	p1.add(jbtNext);
 	add(p1, BorderLayout.SOUTH);
 	
-	p2.add(jbtUpdateDay);
-	p2.add(jbtUpdateMonth);
+	p2.add(jbtUpdateDays);
+	p2.add(jbtUpdateMonths);
 	add(p2);
 	
 	p3.add(jtaDays);
@@ -67,7 +70,12 @@ public class Mainframe extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			Days.days.Increase();
-			System.out.println(jtaDays.getText());
+			if (Days.days.getDigit() == 1) {
+		    jtaDays.setText(Days.days.digitToString());
+		    Months.months.Increase();
+			jtaMonths.setText(Months.months.digitToString());
+			}
+			else jtaDays.setText(Days.days.digitToString());
 		}
 		
 	}
@@ -76,10 +84,27 @@ public class Mainframe extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			if ()
+			String text = jtaMonths.getText();
+			if (!jtaMonths.isEditable())
+				jtaMonths.setEditable(true);
+			else {
+				if (text.matches("[0-9]+") == true && 
+				   (0 < Integer.parseInt(text) && Integer.parseInt(text) < 13)) {
+					Months.months.setDigit(Integer.parseInt(text));
+					jtaMonths.setText(text);
+					jtaMonths.setEditable(false);
+				}
+				else {
+					Months.months.setDigit(1);
+					jtaMonths.setText(Months.months.digitToString());
+					jtaMonths.setEditable(false);
+				}
+				
+			}
 		}
-		
 	}
+	
+
 	
 	
 	public static void main(String[] args) {

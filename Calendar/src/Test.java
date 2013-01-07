@@ -1,11 +1,24 @@
+import calendar.Days;
+import calendar.Months;
+
 public class Test {
 	
 	public static void main(String[] args) {
-		String text = "k"; 
-
-		if (text.matches("[0-9]+") == true && (0 < Integer.parseInt(text) && Integer.parseInt(text) < 13)) {
-		     
-		}
-		else System.out.println("Hej");
-		}
+		Days local1 = Days.days;
+		Months local2 = Months.months;
+		System.out.println(local1.digitToString());
+		local1.Increase();
+		System.out.println(local1.digitToString());
+		local2.Increase();
+		System.out.println(local2.digitToString());
+		System.out.println(local1.digitToString());
+		local1.Increase();
+		System.out.println(local1.digitToString());
+		local1.Increase();
+		System.out.println(local1.digitToString());
+		local1.Increase();
+		System.out.println(local1.digitToString());
+		local1.Increase();
+		System.out.println(local1.digitToString());
+	}
 }

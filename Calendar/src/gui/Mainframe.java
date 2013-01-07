@@ -46,6 +46,7 @@ public class Mainframe extends JFrame {
 	
 	jbtNext.addActionListener(new NextListener());
 	jbtUpdateMonths.addActionListener(new UpdateMonthsListener());
+	jbtUpdateDays.addActionListener(new UpdateDaysListener());
 	
 	p1.add(jbtNext);
 	add(p1, BorderLayout.SOUTH);
@@ -104,8 +105,74 @@ public class Mainframe extends JFrame {
 		}
 	}
 	
+	class UpdateDaysListener implements ActionListener {
 
-	
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			String text = jtaDays.getText();
+			if (!jtaDays.isEditable())
+				jtaDays.setEditable(true);
+			else {
+				
+			switch (Integer.parseInt(jtaMonths.getText())) {
+			
+			case 2 : if (text.matches("[0-9]+") && Integer.parseInt(text) <= 28) {
+						jtaDays.setText(text);
+						jtaDays.setEditable(false);
+						}
+					 else { Days.days.setDigit(1);
+						 	jtaDays.setText(Days.days.digitToString());
+						  	jtaDays.setEditable(false);
+					 	}
+					break;
+			case 4 : if (text.matches("[0-9]+") && Integer.parseInt(text) <= 28) { 
+						jtaDays.setText(text);
+						jtaDays.setEditable(false);
+					    }
+					 else { Days.days.setDigit(1);
+						 	Integer.parseInt(Days.days.digitToString());
+					  	  	jtaDays.setEditable(false);
+						}
+					break;
+			case 6 : if (text.matches("[0-9]+") && Integer.parseInt(text) <= 28) { 
+						jtaDays.setText(text);
+						jtaDays.setEditable(false);
+						}
+			 		 else { Days.days.setDigit(1);
+			 		 		Integer.parseInt(Days.days.digitToString());
+						  	jtaDays.setEditable(false);
+			 		 	}
+					break;
+			case 9 : if (text.matches("[0-9]+") && Integer.parseInt(text) <= 28) { 
+						jtaDays.setText(text);
+						jtaDays.setEditable(false);
+						}
+			 		 else { Days.days.setDigit(1);
+			 		 		Integer.parseInt(Days.days.digitToString());
+						  	jtaDays.setEditable(false);
+			 		 	}
+					break;
+			case 11 : if (text.matches("[0-9]+") && Integer.parseInt(text) <= 28) { 
+						jtaDays.setText(text);
+						jtaDays.setEditable(false);
+						}
+			 		 else { Days.days.setDigit(1);
+			 		 		Integer.parseInt(Days.days.digitToString());
+						    jtaDays.setEditable(false);
+			 		 	}
+					break;
+			default : if (text.matches("[0-9]+") && Integer.parseInt(text) <= 31) {
+						jtaDays.setText(text);
+						jtaDays.setEditable(false);
+						}
+					 else { Days.days.setDigit(1);
+						 	Integer.parseInt(Days.days.digitToString());
+						    jtaDays.setEditable(false);
+					    }
+				}
+			}
+		}
+	}
 	
 	public static void main(String[] args) {
 		JFrame frame = new Mainframe();

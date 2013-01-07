@@ -13,21 +13,26 @@ public class Days extends Digits {
 	@Override
 	public void Increase() {
 		switch (Months.months.getDigit()) {
-		case 2 : if (day == 28)
+		case 2 : if (day == 28) 
 					day = 1;
 				 else day++;
+				break;
 		case 4 : if (day == 30)
 					day = 1;
 				 else day++;
+				break;
 		case 6 : if (day == 30)
 				    day = 1;
 		 		 else day++;
+				break;
 		case 9 : if (day == 30)
 					day = 1;
 		 		 else day++;
+				break;
 		case 11 : if (day == 30)
 					day = 1;
 		 		 else day++;
+				break;
 		default : if (day == 31)
 					day = 1;
 				 else day++;

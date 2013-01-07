@@ -28,17 +28,19 @@ public class Mainframe extends JFrame {
 	JPanel p2 = new JPanel();
 	JPanel p3 = new JPanel();
 	
-	JButton jbtUpdateDay = new JButton("Change day");
-	JButton jbtUpdateMonth = new JButton("Change month");	
-	JButton jbtNext = new JButton("Next day");
-	final JTextArea jtaDays = new JTextArea(1, 1);
+	jbtUpdateDay = new JButton("Change day");
+	jbtUpdateMonth = new JButton("Change month");	
+	jbtNext = new JButton("Next day");
+	
+	jtaDays = new JTextArea(1, 1);
 	jtaDays.setEditable(false);
 	jtaDays.setFont(new Font("Verdana", Font.BOLD, 50));
 	jtaDays.setText(Days.days.digitToString());
-	JTextArea jtaMonths = new JTextArea(1, 1);
+	
+	jtaMonths = new JTextArea(1, 1);
 	jtaMonths.setEditable(false);
 	jtaMonths.setFont(new Font("Verdana", Font.BOLD, 50));
-	jtaMonths.setText("01");
+	jtaMonths.setText(Months.months.digitToString());
 	
 	jbtNext.addActionListener(new NextListener());
 	
@@ -66,6 +68,15 @@ public class Mainframe extends JFrame {
 		public void actionPerformed(ActionEvent arg0) {
 			Days.days.Increase();
 			System.out.println(jtaDays.getText());
+		}
+		
+	}
+	
+	class UpdateMonthsListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			if ()
 		}
 		
 	}
